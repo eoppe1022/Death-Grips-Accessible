@@ -136,9 +136,7 @@ accessibility_data <- death_grips %>%
            (acousticness - mean(rock$acousticness))^2) %>%
            
   mutate(dist_rock = sqrt(dist_rock)) %>%
-  
-  mutate(dist_grips = scales::rescale(dist_grips, to = c(100, 0))) %>%
-  
+    
   mutate(pop_accessibility = (dist_grips + dist_pop)/2) %>%
   mutate(dist_pop = scales::rescale(dist_pop, to = c(100, 0))) %>%
   mutate(pop_accessibility = scales::rescale(pop_accessibility, to = c(100, 0))) %>%
@@ -157,7 +155,9 @@ accessibility_data <- death_grips %>%
 
   mutate(rock_accessibility = (dist_grips + dist_rock)/2) %>%
   mutate(dist_rock = scales::rescale(dist_rock, to = c(100, 0))) %>%
-  mutate(rock_accessibility = scales::rescale(rock_accessibility, to = c(100, 0)))
+  mutate(rock_accessibility = scales::rescale(rock_accessibility, to = c(100, 0))) %>%
+
+  mutate(dist_grips = scales::rescale(dist_grips, to = c(100, 0)))
   
   
 
